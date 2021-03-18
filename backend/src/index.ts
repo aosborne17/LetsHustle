@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { app } from "./app.js";
+import { app } from "./app";
 
 const start = async () => {
   // make sure our env variables are defined before we even start the app
@@ -13,7 +13,7 @@ const start = async () => {
   // lasty we can pass in a name of the database we want to connect to
   // if there is no db with such name, mongo will create it
   try {
-    await mongoose.connect("mongodb://backend-mongo-srv:27017/backend", {
+    await mongoose.connect("mongodb://auth-mongo-srv:27017/auth", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
@@ -23,8 +23,8 @@ const start = async () => {
     console.error("Error Connecting to db", err);
   }
   // after we have connected to the db, we can listen for requests
-  app.listen(8000, () => {
-    console.log("Listening on 8000");
+  app.listen(3000, () => {
+    console.log("Listening on 3000");
   });
 };
 

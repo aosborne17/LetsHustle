@@ -3,6 +3,16 @@ import mongoose from "mongoose";
 import request from "supertest";
 import { app } from "../app";
 
+declare global {
+  namespace NodeJS {
+    interface Global {
+      signin(): Promise<string[]>;
+    }
+  }
+}
+
+let mongo: any;
+
 beforeAll(async () => {
   process.env.JWT_KEY = "asdf";
   // setup mongodb in memory

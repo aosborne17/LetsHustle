@@ -1,8 +1,8 @@
-import jwt from "jsonwebtoken";
-import express from "express";
+import express, { Request, Response } from "express";
 import { body } from "express-validator";
-import { User } from "../models/user";
+import jwt from "jsonwebtoken";
 import { validateRequest } from "../middlewares/validate-request";
+import { User } from "../models/user";
 
 const router = express.Router();
 
@@ -16,13 +16,13 @@ router.post(
       .withMessage("Password must be betwee 4 and 20 characters"), // so if there is an error with email, we will send error msg
   ],
   validateRequest,
-  async (req, res) => {
+  async (req: Request, res: Response) => {
     const { email, password } = req.body;
 
     const existingUser = await User.findOne({ email });
 
     if (existingUser) {
-      throw new Error("Email Already in use");
+      throw new Error("Email already in use");
     }
     const user = User.build({
       email,
@@ -36,7 +36,7 @@ router.post(
         id: user.id,
         email: user.email,
       },
-      process.env.JWT_KEY
+      process.env.JWT_KEY!
     );
 
     // store jwt on session object
