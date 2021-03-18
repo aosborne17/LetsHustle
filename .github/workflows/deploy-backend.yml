@@ -3,10 +3,10 @@ name: deploy-backend
 on:
   push:
     branches:
-      - master
+      - main
     paths:
-      - 'backend/**'
-  
+      - "backend/**"
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,4 +18,3 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       - run: docker push aosborne17/backend
-      
