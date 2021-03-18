@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import { body } from "express-validator";
 import jwt from "jsonwebtoken";
-// import { BadRequestError } from "../errors/bad-request-error";
+import { BadRequestError } from "../errors/bad-request-error";
 import { validateRequest } from "../middlewares/validate-request";
 import { User } from "../models/user";
 import { Password } from "../utils/password";
@@ -21,7 +21,7 @@ router.post(
 
     if (!existingUser) {
       // we throw this generic error to not give potentially malicious users too much info on why it failed
-      throw new Error("Invalid User Credentials");
+      throw new BadRequestError("Invalid User Credentials");
     }
 
     // we are calling the password match method we created
@@ -33,7 +33,7 @@ router.post(
 
     // if passwords fail to match, throw an error
     if (!passwordsMatch) {
-      throw new Error("Invalid User Credentials");
+      throw new BadRequestError("Invalid User Credentials");
     }
 
     // if req reaches this stage, users have logged in

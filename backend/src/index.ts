@@ -13,7 +13,7 @@ const start = async () => {
   // lasty we can pass in a name of the database we want to connect to
   // if there is no db with such name, mongo will create it
   try {
-    await mongoose.connect("mongodb://auth-mongo-srv:27017/auth", {
+    await mongoose.connect("mongodb://backend-mongo-srv:27017/backend", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
