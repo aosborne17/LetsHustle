@@ -13,8 +13,6 @@ function SignupPage() {
     signupCall(email, password, setErrors);
   };
 
-  console.log(errors);
-
   return (
     <div>
       <Form onSubmit={onSubmit}>
