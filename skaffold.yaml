@@ -6,6 +6,7 @@ deploy:
     manifests:
       # so we are telling skaffold to apply every file in our k8s folder
       - ./infra/k8s/*
+      - ./infra/k8s-dev/*
 build:
   local:
     push: false
