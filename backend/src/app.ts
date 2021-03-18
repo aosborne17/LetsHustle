@@ -20,7 +20,9 @@ app.use(
     signed: false,
     // when true this means we will only set a cookie on https connection
     // when we run jest tests, it will change node_env to test, so we will be able to set a cookie on non secure http
-    secure: process.env.NODE_ENV !== "test",
+    // secure: process.env.NODE_ENV !== "test",
+    secure: false,
+    // i'll have it on false until I purchase a https license
   })
 );
 app.use(currentUserRouter);
