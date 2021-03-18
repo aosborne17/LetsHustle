@@ -18,8 +18,8 @@ build:
       # tell skaffold how to handle any files that change in the backend folder
       sync:
         manual:
-          # we want to listen to when any js file changes
-          - src: "src/**/*.js"
+          # we want to listen to when any ts file changes
+          - src: "src/**/*.ts"
             # where to sync the changes, the . means we sync it in the same place
             dest: .
     - image: aosborne17/client
