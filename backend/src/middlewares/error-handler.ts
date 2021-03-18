@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-// import { CustomError } from "../errors/custom-error";
+import { CustomError } from "../errors/custom-error";
 
 export const errorHandler = (
   err: Error,
@@ -9,9 +9,9 @@ export const errorHandler = (
 ) => {
   // the aim is to send back a consistent error for our react app to handle
 
-  // if (err instanceof CustomError) {
-  //   return res.status(err.statusCode).send({ errors: err.serializeErrors() });
-  // }
+  if (err instanceof CustomError) {
+    return res.status(err.statusCode).send({ errors: err.serializeErrors() });
+  }
 
   // if just a generic error, we still need to follow the same structure
   res.status(400).send({
