@@ -5,6 +5,8 @@ import { Password } from "../utils/password";
 
 interface UserAttrs {
   email: string;
+  emailToken: any;
+  isVerified: boolean;
   password: string;
 }
 
@@ -18,6 +20,8 @@ interface UserModel extends mongoose.Model<UserDoc> {
 // An interface to describee the properties a user document has 'a single user'
 interface UserDoc extends mongoose.Document {
   email: string;
+  emailToken: any;
+  isVerified: boolean;
   password: string;
   // createdAt: string;
 }
@@ -26,6 +30,14 @@ const userSchema = new mongoose.Schema(
   {
     email: {
       type: String,
+      required: true,
+    },
+    emailToken: {
+      type: String,
+      // required: true,
+    },
+    isVerified: {
+      type: Boolean,
       required: true,
     },
     password: {

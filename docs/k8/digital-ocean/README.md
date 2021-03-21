@@ -36,6 +36,13 @@ kubectl create secret generic <RANDOM_KEY_NAME> --from-literal=<RANDOM_KEY>=<RAN
 
 ```
 
+### Manually Applying config files
+
+```
+kubectl apply -f infra/k8s
+kubectl apply -f infra/k8s-prod
+```
+
 ### Setting up ingress nginx on digital ocean
 
 - Running the below command will set up ingress nginx on our digital ocean cluster

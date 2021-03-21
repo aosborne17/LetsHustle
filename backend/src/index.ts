@@ -8,6 +8,10 @@ const start = async () => {
     throw new Error("JWT_KEY is not defined");
   }
 
+  if (!process.env.SENDGRID_API_KEY) {
+    throw new Error("SENDGRID_API_KEY is not defined");
+  }
+
   // we putting in the name of the cluster service IP so we can access our mongo database on K8
   // we then pass in the port that our DB is running on
   // lasty we can pass in a name of the database we want to connect to

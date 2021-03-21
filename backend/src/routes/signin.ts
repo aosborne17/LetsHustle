@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import { body } from "express-validator";
 import jwt from "jsonwebtoken";
 import { BadRequestError } from "../errors/bad-request-error";
+import { isVerified } from "../middlewares/is-verified";
 import { validateRequest } from "../middlewares/validate-request";
 import { User } from "../models/user";
 import { Password } from "../utils/password";
@@ -15,6 +16,7 @@ router.post(
     body("password").trim().notEmpty().withMessage("Must Supply A Password"),
   ],
   validateRequest,
+  isVerified,
   async (req: Request, res: Response) => {
     const { email, password } = req.body;
     const existingUser = await User.findOne({ email });

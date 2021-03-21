@@ -27,6 +27,14 @@ spec:
                   name: jwt-secret
                   # we pass in the key of the seret and it will get its value
                   key: JWT_KEY
+
+            - name: SENDGRID_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  # the name we gave to our secret key in the command
+                  name: sendgrid-api-key
+                  # we pass in the key of the seret and it will get its value
+                  key: SENDGRID_API_KEY
 ---
 # adding the three dashes allows us to create multiple objects in one yaml file
 apiVersion: v1
