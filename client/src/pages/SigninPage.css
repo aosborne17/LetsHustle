@@ -1,0 +1,102 @@
+.signInPage {
+  height: 100vh;
+  background: url("http://www.estidia.eu/wp-content/uploads/2018/04/Savin-NY-Website-Background-Web.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signInPageBoxWrapper {
+  background: #ffffff;
+  box-shadow: 0px 4px 25px;
+}
+
+.signInPageBox {
+  padding: 40px;
+}
+
+.signInPage--welcome {
+  margin-bottom: 50px;
+}
+
+.signInPage--welcome > h2 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.signInPage--welcome > p {
+  font-size: 18px;
+  color: gray;
+}
+
+.signInForm {
+  display: flex;
+  flex-direction: column;
+
+  width: 500px;
+}
+
+.signInForm--image {
+  margin-bottom: 50px;
+}
+
+.signInInput--email {
+  /* padding: 20px; */
+  font-size: 22px;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 0.5px solid gray;
+}
+
+.signInInput--password {
+  /* padding: 20px; */
+  padding-bottom: 10px;
+  font-size: 22px;
+  border-bottom: 0.5px solid gray;
+}
+
+.signInForm--button {
+  padding: 10px 20px;
+  width: 150px;
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.signInForm--forgotAndButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.signInForm--forgotPassword {
+  text-decoration: none;
+  font-weight: bold;
+  color: gray;
+}
+
+.signInForm > input:focus {
+  /* box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  border: 1px solid rgba(81, 203, 238, 1); */
+  padding-bottom: 15px;
+}
+
+.signInForm > input {
+  /* transition: all 0.5s ease-in-out; */
+}
+
+.signInBox--footer {
+  background: rgb(186, 182, 182);
+  /* margin-top: 80px; */
+  padding: 20px;
+}
+
+.signInBox--footer > p {
+  text-align: center;
+}
+
+.signIn--createAccount {
+  color: lightblue;
+  text-decoration: none;
+}
