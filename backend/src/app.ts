@@ -1,14 +1,17 @@
 import express from "express";
 import "express-async-errors";
 import cookieSession from "cookie-session";
+import cors from "cors";
 import { currentUserRouter } from "./routes/current-user";
 import { signInRouter } from "./routes/signin";
 import { signOutRouter } from "./routes/signout";
 import { signUpRouter } from "./routes/signup";
 import { errorHandler } from "./middlewares/error-handler";
 import { NotFoundError } from "./errors/not-found-error";
+import { emailVerificationRouter } from "./routes/email-verification";
 
 const app = express();
+app.use(cors());
 app.set("trust proxy", true); // so express is aware its behind the nginx ingress proxy
 app.use(express.json());
 app.use(
@@ -28,6 +31,7 @@ app.use(currentUserRouter);
 app.use(signInRouter);
 app.use(signOutRouter);
 app.use(signUpRouter);
+app.use(emailVerificationRouter);
 // so any route that isn't defined above will throw this error
 app.all("*", async () => {
   throw new NotFoundError();

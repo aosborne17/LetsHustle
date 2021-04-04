@@ -2,4 +2,24 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Manrope", sans-serif;
+}
+
+.app {
+  display: flex;
+}
+
+.app__body {
+  flex: 0.8;
+}
+
+.defaultInputStyling {
+  outline: none;
+  border: none;
+  /* padding: 15px; */
+}
+
+.defaultBtn {
+  cursor: pointer;
+  border: none;
 }

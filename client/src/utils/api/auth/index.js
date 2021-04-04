@@ -1,8 +1,8 @@
-import axios from "axios";
+import ajax from "../../../axios";
 
 export async function signupCall(email, password, setErrors) {
   try {
-    const response = await axios.post("/api/users/signup", {
+    const response = await ajax.post("/api/users/signup", {
       email,
       password,
     });
@@ -10,4 +10,23 @@ export async function signupCall(email, password, setErrors) {
   } catch (err) {
     setErrors(err.response.data.errors);
   }
+}
+
+export async function signInCall(email, password, state, setState) {
+  const response = await ajax
+    .post("/api/users/signin", {
+      email,
+      password,
+    })
+    .then((res) => {
+      console.log(res.data);
+
+      // dispatch user details into login reducer
+    })
+    .catch((err) =>
+      setState({
+        ...state,
+        errors: err.response.data.errors,
+      })
+    );
 }
