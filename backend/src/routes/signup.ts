@@ -7,8 +7,6 @@ import { User } from "../models/user";
 import sgMail from "@sendgrid/mail";
 import crypto from "crypto";
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
-
 const router = express.Router();
 
 router.post(
@@ -23,6 +21,7 @@ router.post(
   validateRequest,
   async (req: Request, res: Response) => {
     const { email, password } = req.body;
+    console.log("hit");
 
     const existingUser = await User.findOne({ email });
 
@@ -34,6 +33,7 @@ router.post(
       emailToken: crypto.randomBytes(64).toString("hex"),
       isVerified: false,
       password,
+      numOfLogins: 0,
     });
 
     ///

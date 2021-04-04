@@ -8,6 +8,7 @@ interface UserAttrs {
   emailToken: any;
   isVerified: boolean;
   password: string;
+  numOfLogins: number;
 }
 
 // An interface which describes the properties that a user model has
@@ -23,6 +24,7 @@ interface UserDoc extends mongoose.Document {
   emailToken: any;
   isVerified: boolean;
   password: string;
+  numOfLogins: number;
   // createdAt: string;
 }
 
@@ -43,6 +45,9 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+    },
+    numOfLogins: {
+      type: Number,
     },
   },
   {

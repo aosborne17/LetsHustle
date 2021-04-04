@@ -12,6 +12,7 @@ router.get(
 
   async (req: Request, res: Response, next: NextFunction) => {
     // console.log(req.query.token);
+    console.log("hitt verify");
 
     const user = await User.findOne({ emailToken: req.query.token });
 
@@ -36,7 +37,7 @@ router.get(
       jwt: userJwt,
     };
 
-    return res.status(200).redirect("/");
+    return res.status(200).redirect(process.env.CLIENT_SIGNINURL_DEV!);
   }
 );
 

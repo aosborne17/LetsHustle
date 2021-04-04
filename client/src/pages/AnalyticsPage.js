@@ -1,7 +1,5 @@
-import React from "react";
-
-function AnalyticsPage() {
+function App() {
   return <div></div>;
 }
 
-export default AnalyticsPage;
+export default App;
